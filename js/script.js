@@ -1,3 +1,4 @@
+//import { API_KEY } from "../env";
 //Assign Elements ID
 const timeEl = document.getElementById('time');
 const dateEl = document.getElementById('date');
@@ -10,8 +11,6 @@ const currentWeatherItemsEl = document.getElementById('current-weather-items');
 const weatherForecastEl = document.getElementById('weather-forecast');
 const currentTempEl = document.getElementById('current-temp');
 
-//API Keys using 
-const API_KEY = '35592787c500ac7792596e7e7b12b9cd';
 //Converting number of days in to Day : Monday etc
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 //Converting month(in number) in to month(in words)
@@ -40,7 +39,7 @@ function getWeatherData() {
     navigator.geolocation.getCurrentPosition((success) => {
         //console.log(success);
         let { latitude, longitude } = success.coords;
-        fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely&units=metric&appid=${API_KEY}`).then(res => res.json()).then(data => {
+        fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely&units=metric&appid=${process.env.API_KEY}`).then(res => res.json()).then(data => {
             //console.log(data);
             showWeatherData(data);
         });

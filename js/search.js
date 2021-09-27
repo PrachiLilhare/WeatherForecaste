@@ -1,8 +1,3 @@
-const weatherApi = {
-    key: "35592787c500ac7792596e7e7b12b9cd",
-    baseUrl: "https://api.openweathermap.org/data/2.5/weather"
-}
-
 //api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
 
 //Event listener on weather body
@@ -21,7 +16,7 @@ searchInputBox.addEventListener('keypress', (event) => {
 
 //Get Weather Details
 function getWeatherDetails(city) {
-    fetch(`${weatherApi.baseUrl}?q=${city}&appid=${weatherApi.key}&units=metric`)
+    fetch(`${process.env.weatherApi.baseUrl}?q=${city}&appid=${process.env.weatherApi.key}&units=metric`)
         .then(weather => {
             //console.log(weather.json());
             return weather.json();
