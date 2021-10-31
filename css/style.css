@@ -206,8 +206,8 @@ body{
     .future-forecast{
         justify-content: start;
         align-items: none;
-        width: auto;
-        overflow-y: scroll;
+        width: calc(100%-200px);
+        overflow-x: scroll;
     }
     .future-forecast .today .temp{
         font-size: 23px;
@@ -234,6 +234,12 @@ body{
 }
 
 @media only screen and (max-width:500px){
+    .future-forecast{
+        width: calc(100%-400px);
+        justify-content: start;
+        align-items: none;
+        overflow-x: scroll;
+    }
     .app-main{
         height: 32vh;
     }
@@ -268,8 +274,9 @@ body{
     
     
 }
-@media only screen and (max-width:1000px){
+@media only screen and (max-width:1400px){
     .future-forecast{
+        width: calc(100%+400px);
         justify-content: start;
         align-items: none;
         overflow-x: scroll;
